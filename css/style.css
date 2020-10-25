@@ -42,5 +42,14 @@
     left: 0;
     right: 0;
     border-radius: 20px;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: lighter;
+}
+
+h1
+{
+    margin: 10px;
 }
 
