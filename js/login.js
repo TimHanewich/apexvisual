@@ -30,6 +30,7 @@ function login()
             var obj = JSON.parse(loginreq.responseText);
             delete obj.Password; //Delete the password from the response
             document.cookie = "useraccount=" + JSON.stringify(obj) + ";path=/";
+            window.location.href = "myaccount.html";
         }
         else if (loginreq.readyState == 4 && loginreq.status != 200)
         {
