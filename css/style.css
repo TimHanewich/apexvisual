@@ -104,3 +104,48 @@ ct
 {
     display: none;
 }
+
+body
+{
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1
+{
+    text-align: center;
+    display: block;
+    margin: 0px;
+}
+
+p
+{
+    margin: 0px;
+}
+
+#scrcont
+{
+    min-width: 400px;
+    max-width: 1200px;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profilepic
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 200px;
+}
+
+.circleimg
+{
+    object-fit: cover;
+    border-radius: 50%;
+}
