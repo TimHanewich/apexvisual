@@ -1,6 +1,21 @@
 body
 {
     background-color: black;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1
+{
+    text-align: center;
+    display: block;
+    margin: 0px;
+}
+
+p
+{
+    margin: 0px;
 }
 
 #scrcont
