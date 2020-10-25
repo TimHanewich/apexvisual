@@ -61,7 +61,7 @@ input
     font-size: inherit;
 }
 
-#reactbutton
+.reactbutton
 {
     height: 37px;
     width: 150px;
@@ -95,7 +95,12 @@ ct
     font-size: 20px;
 }
 
-.loggingin
+.shown
+{
+    display: block;
+}
+
+.hidden
 {
     display: none;
 }
