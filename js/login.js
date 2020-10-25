@@ -14,7 +14,32 @@ function exit_login()
 
 function login()
 {
+    //Hide the login button, show the logging in status
     StartLogin();
+
+    //Get the contents from the page
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var loginreq = new XMLHttpRequest();
+    loginreq.onreadystatechange = function()
+    {
+        if (loginreq.readyState == 4 && loginreq.status == 200)
+        {
+            console.log("Login successful");
+            var obj = JSON.parse(loginreq.responseText);
+            delete obj.Password; //Delete the password from the response
+            document.cookie = "useraccount=" + JSON.stringify(obj) + ";path=/";
+        }
+        else if (loginreq.readyState == 4 && loginreq.status != 200)
+        {
+            console.log("There was a problem with that request.");
+            console.log(loginreq.responseText);
+        }
+    }
+    
+    loginreq.open("GET", "https://apexvisual2020.azurewebsites.net/api/Login?username=" + username + "&password=" + password);
+    loginreq.send();
 }
 
 function StartLogin()
