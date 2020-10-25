@@ -21,3 +21,8 @@ var account = JSON.parse(useraccountstr);
 //Populate the page with the properties
 document.getElementById("username").innerHTML = account.Username;
 document.getElementById("email").innerHTML = account.Email;
+
+//Set the profile picture
+var imgsrclink = "https://apexvisual2020.azurewebsites.net/api/GetUserPhoto?id=" + account.PhotoBlobId;
+var img = document.getElementById("profilepic");
+img.setAttribute("src", imgsrclink);
