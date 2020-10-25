@@ -53,3 +53,35 @@ h1
     margin: 10px;
 }
 
+.logininput
+{
+    font-size: 20px;
+    margin: 5px;
+}
+
+input
+{
+    font-size: inherit;
+}
+
+#reactbutton
+{
+    height: 37px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 3px;
+    border-radius: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+ct
+{
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 37px;
+    font-size: 20px;
+}
