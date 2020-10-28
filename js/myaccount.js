@@ -1,3 +1,8 @@
+///////// TESTING MODE (halts API consumption for testing) /////////
+var TESTING_MODE = true;
+////////////////////////////////////////////////////////////
+
+
 //If there is the "useraccount" cookie, load it. If not, redirect to the login
 var cook = document.cookie;
 var loc1 = cook.indexOf("useraccount");
@@ -25,7 +30,11 @@ document.getElementById("email").innerHTML = account.Email;
 //Set the profile picture
 var imgsrclink = "https://apexvisual2020.azurewebsites.net/api/GetUserPhoto?id=" + account.PhotoBlobId;
 var img = document.getElementById("profilepic");
-img.setAttribute("src", imgsrclink);
+if (TESTING_MODE == false)
+{
+    img.setAttribute("src", imgsrclink);
+}
+
 
 //Display the sessions
 function AddSessionToTable(session_id)
@@ -41,7 +50,10 @@ function AddSessionToTable(session_id)
             AddRowToTable(as_json.SessionId, as_json.CircuitString, as_json.SessionModeString);
         }
     }
-    req.send();
+    if (TESTING_MODE == false)
+    {
+        req.send();
+    }
 }
 function AddRowToTable(id, track, type)
 {
