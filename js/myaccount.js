@@ -26,3 +26,42 @@ document.getElementById("email").innerHTML = account.Email;
 var imgsrclink = "https://apexvisual2020.azurewebsites.net/api/GetUserPhoto?id=" + account.PhotoBlobId;
 var img = document.getElementById("profilepic");
 img.setAttribute("src", imgsrclink);
+
+//Display the sessions
+function AddSessionToTable(session_id)
+{
+    var url_link = "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id=" + session_id;
+    var req = new XMLHttpRequest();
+    req.open("GET", url_link);
+    req.onreadystatechange = function()
+    {
+        if (req.readyState == 4 && req.status == 200)
+        {
+            var as_json = JSON.parse(req.responseText);
+            AddRowToTable(as_json.SessionId, as_json.CircuitString, as_json.SessionModeString);
+        }
+    }
+    req.send();
+}
+function AddRowToTable(id, track, type)
+{
+    var tbl = document.getElementById("mysessions");
+    var nr = tbl.insertRow();
+
+    //ID
+    var nc1 = nr.insertCell();
+    var nt1 = document.createTextNode(id);
+    nc1.appendChild(nt1);
+
+    //track
+    var nc2 = nr.insertCell();
+    var nt2 = document.createTextNode(track);
+    nc2.appendChild(nt2);
+
+    //type
+    var nc3 = nr.insertCell();
+    var nt3 = document.createTextNode(type);
+    nc3.appendChild(nt3);
+}
+account.OwnedSessionIds.forEach(AddSessionToTable);
+
