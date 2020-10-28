@@ -149,3 +149,15 @@ p
     object-fit: cover;
     border-radius: 50%;
 }
+
+table
+{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th
+{
+    text-decoration: underline;
+}
