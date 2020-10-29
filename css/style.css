@@ -162,3 +162,42 @@ th
 {
     text-decoration: underline;
 }
+
+.displaypane
+{
+    width: 600px;
+    min-height: 200px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(109, 215, 203);
+    border-radius: 35px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    flex-direction: column;
+}
+
+.displayheaderbox
+{
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    margin-top: 6px;
+}
+
+.displayheader
+{
+    color: white;
+    font-size: 23px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.displaycontent
+{
+    flex-grow: 4;
+    flex-basis: 0px;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
