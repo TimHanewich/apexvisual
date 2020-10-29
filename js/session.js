@@ -30,9 +30,11 @@ req.onreadystatechange = function()
         var header = document.getElementById("sessionheader");
         header.innerText = "Session " + as_json.SessionId;
         
+        //Populate the track
+        document.getElementById("track").innerText = as_json.CircuitString;
     }
 }
-//req.send();
+req.send();
 
 
 
