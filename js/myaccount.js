@@ -75,8 +75,11 @@ function AddRowToTable(id, track, type)
 
     //ID
     var nc1 = nr.insertCell();
+    var sessionlinkhref = document.createElement("a");
+    sessionlinkhref.setAttribute("href", "session.html?sessionid=" + id);
     var nt1 = document.createTextNode(id);
-    nc1.appendChild(nt1);
+    sessionlinkhref.appendChild(nt1);
+    nc1.appendChild(sessionlinkhref);
 
     //track
     var nc2 = nr.insertCell();
