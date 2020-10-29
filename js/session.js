@@ -32,6 +32,18 @@ req.onreadystatechange = function()
         
         //Populate the track
         document.getElementById("track").innerText = as_json.CircuitString;
+
+        //Populate the session type
+        document.getElementById("sessiontype").innerText = as_json.SessionModeString;
+
+        //Populate the track for the map
+        document.getElementById("trackpiclabel").innerText = as_json.CircuitString;
+
+        //Populate the selected driver string
+        document.getElementById("drivername").innerText = as_json.SelectedDriverString;
+
+        //Populate the Team name
+        document.getElementById("teamname").innerText = as_json.SelectedTeamString;
     }
 }
 req.send();
