@@ -9,7 +9,8 @@ if (sess == null)
     //Remove the hidden class from the error
     document.getElementById("sessionidnullerr").classList.remove("hidden");
 
-    
+    //Hide the display
+    document.getElementById("display").classList.add("hidden");
 }
 
 //Sent it to the API
