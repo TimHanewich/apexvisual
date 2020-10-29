@@ -26,7 +26,9 @@ req.onreadystatechange = function()
         //Make the loading screen hidden
         document.getElementById("loading_cover").classList.add("hidden");
 
-
+        //Added the session ID to the top header
+        var header = document.getElementById("sessionheader");
+        header.innerText = "Session " + as_json.SessionId;
         
     }
 }
