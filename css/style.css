@@ -211,4 +211,29 @@ th
     top: 7px;
 }
 
+.fullscreencover
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+.covercenter
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+#max
+{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
 

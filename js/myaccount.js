@@ -1,5 +1,5 @@
 ///////// TESTING MODE (halts API consumption for testing) /////////
-var TESTING_MODE = false;
+var TESTING_MODE = true;
 ////////////////////////////////////////////////////////////
 
 
