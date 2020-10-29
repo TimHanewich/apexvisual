@@ -176,6 +176,7 @@ th
     margin-right: auto;
     margin-top: 25px;
     flex-direction: column;
+    position: relative;
 }
 
 .displayheaderbox
@@ -200,4 +201,14 @@ th
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
 }
+
+.displayloadingmsg
+{
+    color: pink;
+    font-style: italic;
+    position: absolute;
+    left: 15px;
+    top: 7px;
+}
+
 

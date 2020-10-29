@@ -1,5 +1,5 @@
 ///////// TESTING MODE (halts API consumption for testing) /////////
-var TESTING_MODE = true;
+var TESTING_MODE = false;
 ////////////////////////////////////////////////////////////
 
 
@@ -37,6 +37,8 @@ if (TESTING_MODE == false)
 
 
 //Display the sessions
+var Session_Count_ToSend = account.OwnedSessionIds.length;
+var Session_Count_Received = 0;
 function AddSessionToTable(session_id)
 {
     var url_link = "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id=" + session_id;
@@ -48,6 +50,17 @@ function AddSessionToTable(session_id)
         {
             var as_json = JSON.parse(req.responseText);
             AddRowToTable(as_json.SessionId, as_json.CircuitString, as_json.SessionModeString);
+        }
+
+        //If it is finished with this request, then mark it as received. And check if this is the last request to come in. If it is, hide the 'loading' msg.
+        if (req.readyState == 4)
+        {
+            Session_Count_Received = Session_Count_Received + 1;
+            if (Session_Count_Received == Session_Count_ToSend)
+            {
+                //hide the loading msg on the my sessions display
+                document.getElementById("mysessiondisplayloadingmsg").setAttribute("class", "hidden");
+            }
         }
     }
     if (TESTING_MODE == false)
