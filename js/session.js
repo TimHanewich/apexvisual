@@ -45,6 +45,9 @@ req.onreadystatechange = function()
 
         //Populate the Team name
         document.getElementById("teamname").innerText = as_json.SelectedTeamString;
+
+        //FINALLY.... Show it!
+        document.getElementById("display").classList.remove("hidden");
     }
 }
 req.send();
