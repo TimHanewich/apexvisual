@@ -20,11 +20,17 @@ req.onreadystatechange = function()
 {
     if (req.readyState == 4 && req.status == 200)
     {
+        //Parse the json
         var as_json = JSON.parse(req.responseText);
-        console.log(as_json.CircuitString);
+
+        //Make the loading screen hidden
+        document.getElementById("loading_cover").classList.add("hidden");
+
+
+        
     }
 }
-req.send();
+//req.send();
 
 
 

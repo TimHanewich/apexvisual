@@ -237,3 +237,58 @@ th
     border-radius: 50%;
 }
 
+.backgroundimg
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    z-index: 0;
+}
+
+.centerdisplaypane
+{
+    position: fixed;
+    width: 60%;
+    top: 0px;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    z-index: 10;
+    transform: translateX(-50%)
+}
+
+.sessionheader
+{
+    margin-top: 15px;
+    text-decoration: underline;
+}
+
+.twocol
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    width: 100%;
+}
+
+.threecol
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    width: 100%;
+}
+
+.col
+{
+    flex-grow: 1;
+    height: 100%;
+    flex-basis: 0px;
+}
