@@ -13,7 +13,7 @@ if (sess == null)
     document.getElementById("display").classList.add("hidden");
 }
 
-//Sent it to the API
+//Send it to the API
 var dest_url = "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id=" + sess;
 var req = new XMLHttpRequest();
 req.open("GET", dest_url);
