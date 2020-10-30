@@ -52,7 +52,6 @@ else // The session Id IS provided (expected normal behavior)
             //Get the local friendlynametrackwallpapers file to get the URL that should be used for the background image.
             var fntwreq = new XMLHttpRequest();
             fntwreq.open("get", "/assets/friendlynametrackwallpapers.json");
-            var TrackWallpapers = null;
             fntwreq.onreadystatechange = function()
             {
                 if (fntwreq.readyState == 4)
@@ -62,6 +61,21 @@ else // The session Id IS provided (expected normal behavior)
                 }
             }
             fntwreq.send();
+
+            //Get the local driverheadshots json file and plug in the right headshot for that driver
+            var dhsreq = new XMLHttpRequest();
+            dhsreq.open("get", "/assets/driverheadshots.json");
+            dhsreq.onreadystatechange = function()
+            {
+                if (dhsreq.readyState == 4)
+                {
+                    var headshotjson = JSON.parse(dhsreq.responseText);
+                    var headshoturl = headshotjson[as_json.SelectedDriverString];
+                    document.getElementById("headshot").setAttribute("src", headshoturl);
+                }
+            }
+            dhsreq.send();
+
 
 
             //FINALLY.... Show it!
