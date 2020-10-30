@@ -12,47 +12,68 @@ if (sess == null)
     //Hide the display
     document.getElementById("display").classList.add("hidden");
 }
-
-//Send it to the API
-var dest_url = "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id=" + sess;
-var req = new XMLHttpRequest();
-req.open("GET", dest_url);
-req.onreadystatechange = function()
+else // The session Id IS provided (expected normal behavior)
 {
-    if (req.readyState == 4 && req.status == 200)
+    
+
+    //Send it to the API
+    var dest_url = "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id=" + sess;
+    var req = new XMLHttpRequest();
+    req.open("GET", dest_url);
+    req.onreadystatechange = function()
     {
-        //Parse the json
-        var as_json = JSON.parse(req.responseText);
+        if (req.readyState == 4 && req.status == 200)
+        {
+            //Parse the json
+            var as_json = JSON.parse(req.responseText);
 
-        //Make the loading screen hidden
-        document.getElementById("loading_cover").classList.add("hidden");
+            //Make the loading screen hidden
+            document.getElementById("loading_cover").classList.add("hidden");
 
-        //Added the session ID to the top header
-        var header = document.getElementById("sessionheader");
-        header.innerText = "Session " + as_json.SessionId;
-        
-        //Populate the track
-        document.getElementById("track").innerText = as_json.CircuitString;
+            //Added the session ID to the top header
+            var header = document.getElementById("sessionheader");
+            header.innerText = "Session " + as_json.SessionId;
+            
+            //Populate the track
+            document.getElementById("track").innerText = as_json.CircuitString;
 
-        //Populate the session type
-        document.getElementById("sessiontype").innerText = as_json.SessionModeString;
+            //Populate the session type
+            document.getElementById("sessiontype").innerText = as_json.SessionModeString;
 
-        //Populate the track for the map
-        document.getElementById("trackpiclabel").innerText = as_json.CircuitString;
+            //Populate the track for the map
+            document.getElementById("trackpiclabel").innerText = as_json.CircuitString;
 
-        //Populate the selected driver string
-        document.getElementById("drivername").innerText = as_json.SelectedDriverString;
+            //Populate the selected driver string
+            document.getElementById("drivername").innerText = as_json.SelectedDriverString;
 
-        //Populate the Team name
-        document.getElementById("teamname").innerText = as_json.SelectedTeamString;
+            //Populate the Team name
+            document.getElementById("teamname").innerText = as_json.SelectedTeamString;
 
-        //FINALLY.... Show it!
-        document.getElementById("display").classList.remove("hidden");
+            //Get the local friendlynametrackwallpapers file to get the URL that should be used for the background image.
+            var fntwreq = new XMLHttpRequest();
+            fntwreq.open("get", "/assets/friendlynametrackwallpapers.json");
+            var TrackWallpapers = null;
+            fntwreq.onreadystatechange = function()
+            {
+                if (fntwreq.readyState == 4)
+                {
+                    var trackwallpaperjson = JSON.parse(fntwreq.responseText);
+                    document.getElementById("trackbackgroundimg").setAttribute("src", trackwallpaperjson[as_json.CircuitString]);
+                }
+            }
+            fntwreq.send();
+
+
+            //FINALLY.... Show it!
+            document.getElementById("display").classList.remove("hidden");
+        }
     }
+    req.send();
+
+
+
+
+
 }
-req.send();
 
 
-
-
-////UTILITY FUNCTIONS
