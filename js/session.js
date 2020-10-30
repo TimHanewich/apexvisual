@@ -76,6 +76,19 @@ else // The session Id IS provided (expected normal behavior)
             }
             dhsreq.send();
 
+            //Get the image of the team (car) that was used
+            var carreq = new XMLHttpRequest();
+            carreq.open("get", "/assets/carimages.json");
+            carreq.onreadystatechange = function()
+            {
+                if (carreq.readyState == 4)
+                {
+                    var carjson = JSON.parse(carreq.responseText);
+                    document.getElementById("car").setAttribute("src", carjson[as_json.SelectedTeamString]);
+                }
+            }
+            carreq.send();
+
 
 
             //FINALLY.... Show it!
