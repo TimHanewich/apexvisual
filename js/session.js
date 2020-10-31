@@ -30,9 +30,9 @@ else // The session Id IS provided (expected normal behavior)
             //Make the loading screen hidden
             document.getElementById("loading_cover").classList.add("hidden");
 
-            //Added the session ID to the top header
+            //Added the session ID to the top header. Get the id from the parameters in the URl
             var header = document.getElementById("sessionheader");
-            header.innerText = "Session " + as_json.SessionId;
+            header.innerText = "Session " + sess;
             
             //Populate the track
             document.getElementById("track").innerText = as_json.CircuitString;
