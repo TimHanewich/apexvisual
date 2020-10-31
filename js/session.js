@@ -89,6 +89,19 @@ else // The session Id IS provided (expected normal behavior)
             }
             carreq.send();
 
+            //Get the track map
+            var mapreq = new XMLHttpRequest();
+            mapreq.open("get", "assets/trackmaps.json");
+            mapreq.onreadystatechange = function()
+            {
+                if (mapreq.readyState == 4)
+                {
+                    var trackmapjson = JSON.parse(mapreq.responseText);
+                    document.getElementById("trackmap").setAttribute("src", trackmapjson[as_json.CircuitString]);
+                }
+            }
+            mapreq.send();
+
 
 
             //FINALLY.... Show it!
