@@ -102,6 +102,11 @@ else // The session Id IS provided (expected normal behavior)
             }
             mapreq.send();
 
+            //Populate the session date time
+            var dt = new Date(as_json.SessionSummaryCreatedAt);
+            var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
+            document.getElementById("sessiondatetime").innerText = datetimestr;
+
 
 
             //FINALLY.... Show it!
