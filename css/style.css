@@ -344,3 +344,9 @@ h2
     margin-top: 7px;
     font-size: 18px;
 }
+
+#userdata
+{
+    position: relative;
+    z-index: 99;
+}
