@@ -48,8 +48,16 @@ function AddSessionToTable(session_id)
     {
         if (req.readyState == 4 && req.status == 200)
         {
+            //Retrieve the session id out of the response. We can't do this through a simple JSON deserialization because the json deserialization process will round the long number.
+            var loc1 = req.responseText.indexOf("SessionId");
+            loc1 = req.responseText.indexOf(":", loc1 + 1);
+            var loc2 = req.responseText.indexOf(",", loc1 + 1);
+            var sesid = req.responseText.substring(loc1 + 1, loc2).trim();
+            
+            //Still parse it for some other properties
             var as_json = JSON.parse(req.responseText);
-            AddRowToTable(as_json.SessionId, as_json.CircuitString, as_json.SessionModeString);
+
+            AddRowToTable(sesid, as_json.CircuitString, as_json.SessionModeString);
         }
 
         //If it is finished with this request, then mark it as received. And check if this is the last request to come in. If it is, hide the 'loading' msg.
