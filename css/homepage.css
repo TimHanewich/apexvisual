@@ -23,6 +23,7 @@
 {
     grid-area: content;
     background-color: blue;
+    overflow: hidden;
 }
 
 .footer
@@ -35,6 +36,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .headercontentgrid
@@ -63,4 +65,5 @@
     vertical-align: middle;
     text-align: center;
     line-height: 30px;
+    color: rgba(255, 255, 255, 0.3);
 }
