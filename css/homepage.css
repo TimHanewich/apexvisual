@@ -28,7 +28,6 @@
 .footer
 {
     grid-area: footer;
-    background-color: chartreuse;
 }
 
 .fullcover
@@ -55,4 +54,13 @@
     margin-top: auto;
     margin-bottom: auto;
     font-size: 30px;
+}
+
+#footertxt
+{
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 30px;
 }
