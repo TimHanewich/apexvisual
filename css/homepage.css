@@ -1,0 +1,32 @@
+.homegrid
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "content content content"
+    "footer footer footer";
+    grid-template-rows: 60px auto 30px;
+}
+
+.header
+{
+    grid-area: header;
+    background-color: red;
+}
+
+.content
+{
+    grid-area: content;
+    background-color: blue;
+}
+
+.footer
+{
+    grid-area: footer;
+    background-color: chartreuse;
+}
