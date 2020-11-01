@@ -8,9 +8,8 @@
     display: grid;
     grid-template-areas: 
     "header header header"
-    "content content content"
-    "footer footer footer";
-    grid-template-rows: 60px auto 30px;
+    "content content content";
+    grid-template-rows: 60px auto;
 }
 
 .header
@@ -28,7 +27,11 @@
 
 .footer
 {
-    grid-area: footer;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
 }
 
 .fullcover
