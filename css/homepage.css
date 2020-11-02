@@ -119,3 +119,9 @@ tab
 {
     grid-area: login;
 }
+
+.bolded
+{
+    font-weight: bold;
+    font-size: 22px;
+}
