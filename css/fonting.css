@@ -1,0 +1,10 @@
+@font-face
+{
+    font-family: Exo;
+    src: url(../assets/fonts/Exo.ttf);
+}
+
+*
+{
+    font-family: Exo;
+}
