@@ -99,3 +99,8 @@ tab
     font-family: inherit;
     font-size: 20px;
 }
+
+#services-tab
+{
+    grid-area: services;
+}
