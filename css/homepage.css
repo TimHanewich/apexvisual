@@ -96,5 +96,5 @@ tab
     line-height: 60px;
     letter-spacing: 2px;
     color: rgb(108, 218, 205);
-    font-family: sans-serif;
+    font-family: inherit;
 }
