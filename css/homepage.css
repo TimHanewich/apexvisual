@@ -76,9 +76,24 @@
 {
     grid-area: tabs;
     height: 100%;
+    width: 100%;  
+}
+
+.tabgrid
+{
+    height: 100%;
     width: 100%;
-    background-color: purple;
-    overflow-x: scroll;
-    scrollbar-width: 0px;
-    
+    display: grid;
+    grid-template-areas: "services about contact login";
+}
+
+tab
+{
+    display: inline-block;
+    text-transform: uppercase;
+    vertical-align: middle;
+    line-height: 60px;
+    letter-spacing: 2px;
+    color: rgb(108, 218, 205);
+    font-family: sans-serif;
 }
