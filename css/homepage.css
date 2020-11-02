@@ -104,3 +104,18 @@ tab
 {
     grid-area: services;
 }
+
+#about-tab
+{
+    grid-area: about;
+}
+
+#contact-tab
+{
+    grid-area: contact;
+}
+
+#login-tab
+{
+    grid-area: login;
+}
