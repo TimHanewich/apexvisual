@@ -98,9 +98,3 @@ tab
     color: rgb(108, 218, 205);
     font-family: sans-serif;
 }
-
-@font-face
-{
-    font-family: MINE;
-    src: url(../Montserrat-Light.ttf);
-}
