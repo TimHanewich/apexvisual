@@ -94,7 +94,8 @@ tab
     text-transform: uppercase;
     vertical-align: middle;
     line-height: 60px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: rgb(108, 218, 205);
     font-family: inherit;
+    font-size: 20px;
 }
