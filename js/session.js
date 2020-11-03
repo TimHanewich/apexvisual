@@ -10,7 +10,7 @@ if (sess == null)
     document.getElementById("sessionidnullerr").classList.remove("hidden");
 
     //Hide the display
-    document.getElementById("display").classList.add("hidden");
+    document.getElementById("sessioninfodisplay").classList.add("hidden");
 }
 else // The session Id IS provided (expected normal behavior)
 {
@@ -141,7 +141,7 @@ else // The session Id IS provided (expected normal behavior)
 
 
             //FINALLY.... Show it!
-            document.getElementById("display").classList.remove("hidden");
+            document.getElementById("sessioninfodisplay").classList.remove("hidden");
         }
     }
     req.send();
