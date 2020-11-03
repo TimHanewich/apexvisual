@@ -181,7 +181,7 @@ function PostLapToSessionAnalysisTable(lap)
 
         //Create the lap time
         var td5 = document.createElement("td");
-        td5.innerText = lap.LapTime;
+        td5.innerText = FriendlyLapTime(lap.LapTime);
         tr.appendChild(td5);
 
         //Add the row to the table
