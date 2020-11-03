@@ -362,3 +362,13 @@ a
     border-color: white;
     padding: 20px;
 }
+
+#times
+{
+    font-size: 20px;
+}
+
+#times tr
+{
+    line-height: 23px;
+}

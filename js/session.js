@@ -116,8 +116,14 @@ else // The session Id IS provided (expected normal behavior)
                 {
                     if (sareq.status == 200) //OK (it worked as expected)
                     {
+                        //Hide the loading message
+                        document.getElementById("session_analysis_loading").classList.add("hidden");
+                        
+                        //Parse the object
                         var saobj = JSON.parse(sareq.responseText);
-                        console.log(saobj);
+
+                        //Post each lap to the table
+                        saobj.Laps.forEach(PostLapToSessionAnalysisTable);
 
                         //Unhide the analysis section
                         document.getElementById("session_analysis").classList.remove("hidden");
@@ -144,6 +150,43 @@ else // The session Id IS provided (expected normal behavior)
 
 
 
+}
+
+function PostLapToSessionAnalysisTable(lap)
+{
+    if (lap.LapTime > 0)
+    {
+        //Create the new row
+        var tr = document.createElement("tr");
+
+        //Create the lap 
+        var td1 = document.createElement("td");
+        td1.innerText = lap.LapNumber;
+        tr.appendChild(td1);
+
+        //Create the s1 time
+        var td2 = document.createElement("td");
+        td2.innerText = lap.Sector1Time;
+        tr.appendChild(td2);
+
+        //Create the s2 time
+        var td3 = document.createElement("td");
+        td3.innerText = lap.Sector2Time;
+        tr.appendChild(td3);
+
+        //Create the s3 time
+        var td4 = document.createElement("td");
+        td4.innerText = lap.Sector3Time;
+        tr.appendChild(td4);
+
+        //Create the lap time
+        var td5 = document.createElement("td");
+        td5.innerText = lap.LapTime;
+        tr.appendChild(td5);
+
+        //Add the row to the table
+        document.getElementById("timing_body").appendChild(tr);
+    } 
 }
 
 
