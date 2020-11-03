@@ -118,6 +118,9 @@ else // The session Id IS provided (expected normal behavior)
                     {
                         var saobj = JSON.parse(sareq.responseText);
                         console.log(saobj);
+
+                        //Unhide the analysis section
+                        document.getElementById("session_analysis").classList.remove("hidden");
                     }
                     else
                     {
