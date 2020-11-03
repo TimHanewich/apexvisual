@@ -107,6 +107,28 @@ else // The session Id IS provided (expected normal behavior)
             var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
             document.getElementById("sessiondatetime").innerText = datetimestr;
 
+            //Attempt to bring in the session analysis (make a call)
+            var sareq = new XMLHttpRequest();
+            sareq.open("get", "https://apexvisual2020.azurewebsites.net/api/GetSessionAnalysis?id=" + sess + "&includecorners=false")
+            sareq.onreadystatechange = function()
+            {
+                if (sareq.readyState == 4)
+                {
+                    if (sareq.status == 200) //OK (it worked as expected)
+                    {
+                        var saobj = JSON.parse(sareq.responseText);
+                        console.log(saobj);
+                    }
+                    else
+                    {
+                        //It failed, so show the not available message and HIDe the loading message
+                        document.getElementById("session_analysis_loading").classList.add("hidden");
+                        document.getElementById("session_analysis_not_av").classList.remove("hidden");
+                    }
+                }
+            }
+            sareq.send();
+
 
 
             //FINALLY.... Show it!
