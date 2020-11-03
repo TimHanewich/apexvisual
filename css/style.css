@@ -1,4 +1,8 @@
-
+@font-face
+{
+    font-family: Abel;
+    src: url(../assets/fonts/Abel.ttf);
+}
 
 /*Background image*/
 #bg
