@@ -138,3 +138,19 @@ tab
     left: 0px;
     z-index: 5;
 }
+
+/*This serves for every homepage content pane*/
+.homepage-pane
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#services-pane
+{
+    background-color: sienna;
+}
+
