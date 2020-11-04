@@ -128,3 +128,13 @@ tab
     font-weight: bold;
     font-size: 22px;
 }
+
+#homepage-content-pane
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+}
