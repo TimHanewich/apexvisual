@@ -8,8 +8,9 @@
     display: grid;
     grid-template-areas: 
     "header header header"
-    "content content content";
-    grid-template-rows: 60px auto;
+    "content content content"
+    "footer footer footer";
+    grid-template-rows: 60px auto 30px;
 }
 
 .header
@@ -27,8 +28,8 @@
 
 .footer
 {
-    position: fixed;
-    height: 30px;
+    grid-area: footer;
+    height: 100%;
     width: 100%;
     bottom: 0px;
     left: 0px;
