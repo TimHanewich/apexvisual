@@ -24,6 +24,7 @@
     grid-area: content;
     background-color: blue;
     overflow: hidden;
+    position: relative;
 }
 
 .footer
@@ -41,6 +42,7 @@
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    position: relative;
 }
 
 .headercontentgrid
