@@ -167,3 +167,47 @@ tab
     border-width: 5px;
 }
 
+.two-content
+{
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 50% 50%;
+    width: 70%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.two-content-half
+{
+    overflow: hidden;
+}
+
+.left-content
+{
+    grid-area: left;
+}
+
+.right-content
+{
+    grid-area: right;
+}
+
+.framedisplayimg
+{
+    height: 100%;
+    width: 95%;
+    margin: auto;
+    object-fit: contain;
+}
+
+.two-content-text
+{
+    line-height: 300px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 26px;
+}
+
