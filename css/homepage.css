@@ -151,7 +151,8 @@ tab
 
 #services-pane
 {
-    
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #app-logo
@@ -209,5 +210,6 @@ tab
     vertical-align: middle;
     text-align: center;
     font-size: 26px;
+    word-wrap: break-word;
 }
 
