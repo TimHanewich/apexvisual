@@ -62,6 +62,7 @@
     margin-bottom: auto;
     font-size: 30px;
     font-family: sans-serif;
+    text-decoration: none;
 }
 
 #footertxt
@@ -228,4 +229,9 @@ tab
 .firsttxtinpane
 {
     margin-top: 30px;
+}
+
+#apexvisuallogotextheader
+{
+    font-family: sans-serif;
 }
