@@ -166,17 +166,17 @@ function PostLapToSessionAnalysisTable(lap)
 
         //Create the s1 time
         var td2 = document.createElement("td");
-        td2.innerText = Math.round(lap.Sector1Time * 1000) / 1000;
+        td2.innerText = (Math.round(lap.Sector1Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td2);
 
         //Create the s2 time
         var td3 = document.createElement("td");
-        td3.innerText = Math.round(lap.Sector2Time * 1000) / 1000;
+        td3.innerText = (Math.round(lap.Sector2Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td3);
 
         //Create the s3 time
         var td4 = document.createElement("td");
-        td4.innerText = Math.round(lap.Sector3Time * 1000) / 1000;
+        td4.innerText = (Math.round(lap.Sector3Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td4);
 
         //Create the lap time
