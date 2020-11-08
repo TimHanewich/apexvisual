@@ -88,7 +88,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-areas: "services about contact login";
+    grid-template-areas: "services api contact login";
 }
 
 tab
@@ -108,9 +108,9 @@ tab
     grid-area: services;
 }
 
-#about-tab
+#api-tab
 {
-    grid-area: about;
+    grid-area: api;
 }
 
 #contact-tab
