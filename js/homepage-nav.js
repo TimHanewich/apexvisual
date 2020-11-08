@@ -24,5 +24,12 @@ function ShowApiPane()
     document.getElementById("api-pane").classList.remove("hidden");
 }
 
+function ShowContactPane()
+{
+    HideAllContent();
+    ShowContentBlackVail();
+    document.getElementById("contact-pane").classList.remove("hidden");
+}
+
 //SETUP
 HideAllContent();
