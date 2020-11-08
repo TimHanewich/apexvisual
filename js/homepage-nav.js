@@ -21,7 +21,7 @@ function ShowApiPane()
 {
     HideAllContent();
     ShowContentBlackVail();
-    document.getElementById("api-pane").classList.remove("hidden");0
+    document.getElementById("api-pane").classList.remove("hidden");
 }
 
 //SETUP
