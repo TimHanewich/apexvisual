@@ -1,3 +1,9 @@
+//     VARIABLES FOR LATER
+var fastest_s1 = 99999;
+var fastest_s2 = 99999;
+var fastest_s3 = 99999;
+var fastest_lap = 99999;
+
 //Get the session id from the URL
 var this_url = new URL(window.location.href);
 var sess = this_url.searchParams.get("sessionid");
@@ -122,6 +128,9 @@ else // The session Id IS provided (expected normal behavior)
                         //Parse the object
                         var saobj = JSON.parse(sareq.responseText);
 
+                        //Run it through a for each function that will find the fastest times for sectors and lap
+                        saobj.Laps.forEach(FindFastestTimes);
+
                         //Post each lap to the table
                         saobj.Laps.forEach(PostLapToSessionAnalysisTable);
 
@@ -159,7 +168,7 @@ function PostLapToSessionAnalysisTable(lap)
         //Create the new row
         var tr = document.createElement("tr");
 
-        //Create the lap 
+        //Create the lap number
         var td1 = document.createElement("td");
         td1.innerText = lap.LapNumber;
         tr.appendChild(td1);
@@ -168,25 +177,68 @@ function PostLapToSessionAnalysisTable(lap)
         var td2 = document.createElement("td");
         td2.innerText = (Math.round(lap.Sector1Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td2);
+        if (lap.Sector1Time == fastest_s1)
+        {
+            td2.classList.add("fastesttime");
+        }
 
         //Create the s2 time
         var td3 = document.createElement("td");
         td3.innerText = (Math.round(lap.Sector2Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td3);
+        if (lap.Sector2Time == fastest_s2)
+        {
+            td3.classList.add("fastesttime");
+        }
 
         //Create the s3 time
         var td4 = document.createElement("td");
         td4.innerText = (Math.round(lap.Sector3Time * 1000) / 1000).toFixed(3);
         tr.appendChild(td4);
+        if (lap.Sector3Time == fastest_s3)
+        {
+            td4.classList.add("fastesttime");
+        }
 
         //Create the lap time
         var td5 = document.createElement("td");
         td5.innerText = FriendlyLapTime(lap.LapTime);
         tr.appendChild(td5);
+        if (lap.LapTime == fastest_lap)
+        {
+            td5.classList.add("fastesttime");
+        }
 
         //Add the row to the table
         document.getElementById("timing_body").appendChild(tr);
     } 
 }
 
+function FindFastestTimes(lap)
+{
+    var s1 = lap.Sector1Time;
+    var s2 = lap.Sector2Time;
+    var s3 = lap.Sector3Time;
+    var lap = lap.LapTime;
+
+    if (s1 > 0 && s1 < fastest_s1)
+    {
+        fastest_s1 = s1;
+    }
+
+    if (s2 > 0 && s2 < fastest_s2)
+    {
+        fastest_s2 = s2;
+    }
+
+    if (s3 > 0 && s3 < fastest_s3)
+    {
+        fastest_s3 = s3;
+    }
+
+    if (lap > 0 && lap < fastest_lap)
+    {
+        fastest_lap = lap;
+    }
+}
 
