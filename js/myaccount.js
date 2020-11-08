@@ -57,7 +57,11 @@ function AddSessionToTable(session_id)
             //Still parse it for some other properties
             var as_json = JSON.parse(req.responseText);
 
-            AddRowToTable(sesid, as_json.CircuitString, as_json.SessionModeString);
+            //Get the row string that we will pass to the AddRowToTable mfunction
+            var dt = new Date(as_json.SessionSummaryCreatedAt);
+            var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
+
+            AddRowToTable(sesid, datetimestr, as_json.CircuitString, as_json.SessionModeString);
         }
 
         //If it is finished with this request, then mark it as received. And check if this is the last request to come in. If it is, hide the 'loading' msg.
@@ -76,7 +80,7 @@ function AddSessionToTable(session_id)
         req.send();
     }
 }
-function AddRowToTable(id, track, type)
+function AddRowToTable(id, date, track, type)
 {
     var tbl = document.getElementById("mysessions");
     var nr = tbl.insertRow();
@@ -88,6 +92,11 @@ function AddRowToTable(id, track, type)
     var nt1 = document.createTextNode(id);
     sessionlinkhref.appendChild(nt1);
     nc1.appendChild(sessionlinkhref);
+
+    //Date
+    var nc_d = nr.insertCell();
+    var nt_d = document.createTextNode(date);
+    nc_d.appendChild(nt_d);
 
     //track
     var nc2 = nr.insertCell();
