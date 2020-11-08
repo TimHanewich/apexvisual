@@ -3,6 +3,7 @@ function HideAllContent()
     document.getElementById("content-black-vail").classList.add("hidden");
     document.getElementById("services-pane").classList.add("hidden");
     document.getElementById("api-pane").classList.add("hidden");
+    document.getElementById("contact-pane").classList.add("hidden");
 }
 
 function ShowContentBlackVail()
