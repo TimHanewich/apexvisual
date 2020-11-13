@@ -23,6 +23,7 @@
     grid-template-areas: "title" 
     "corners";
     grid-template-rows: 35px auto;
+    position: relative;
 }
 
 .cornerselectortitle
@@ -38,4 +39,22 @@
     margin: 0px;
     line-height: 35px;
     font-size: 26px;
+}
+
+.cornerselectorcornerlist
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: silver;
+    grid-area: corners;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+corneroption
+{
+    text-align: center;
+    font-size: 30px;
+    display: block;
 }
