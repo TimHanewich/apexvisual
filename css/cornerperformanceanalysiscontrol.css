@@ -1,0 +1,41 @@
+.cornerperformanceanalysispane
+{
+    position: relative;
+    width: 80%;
+    height: 400px;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-areas: "corners performancedisplay";
+    grid-template-columns: 120px auto;
+}
+
+.cornerselector
+{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    grid-area: corners;
+    display: grid;
+    grid-template-areas: "title" 
+    "corners";
+    grid-template-rows: 35px auto;
+}
+
+.cornerselectortitle
+{
+    height: 100%;
+    width: 100%;
+    background-color: royalblue;
+    grid-area: title;
+}
+
+.cornerselectortitletxt
+{
+    margin: 0px;
+    line-height: 35px;
+    font-size: 26px;
+}
