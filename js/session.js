@@ -134,6 +134,20 @@ else // The session Id IS provided (expected normal behavior)
                         //Post each lap to the table
                         saobj.Laps.forEach(PostLapToSessionAnalysisTable);
 
+                        //If the session analysis has corner performance analysis, render these in the corner selector
+                        if (saobj.Corners != null)
+                        {
+                            //Clear out the items in the list
+                            document.getElementById("cornerselectionlist").innerHTML = "";
+                            
+                            //Add each
+                            saobj.Corners.forEach(LoadCornerPerformanceAnalysis)
+                        }
+                        else
+                        {
+                            //Hide the corner selector pane and show a message saying they have to re-generate the analysis in the app
+                        }
+
                         //Unhide the analysis section
                         document.getElementById("session_analysis").classList.remove("hidden");
                     }
@@ -242,3 +256,10 @@ function FindFastestTimes(lap)
     }
 }
 
+function LoadCornerPerformanceAnalysis(corner_analysis)
+{
+    //Add the corner to the list
+    var ele = document.createElement("corneroption");
+    ele.innerText = corner_analysis.CornerNumber.toString();
+    document.getElementById("cornerselectionlist").appendChild(ele);
+}
