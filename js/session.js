@@ -57,7 +57,7 @@ else // The session Id IS provided (expected normal behavior)
 
             //Get the local friendlynametrackwallpapers file to get the URL that should be used for the background image.
             var fntwreq = new XMLHttpRequest();
-            fntwreq.open("get", "/assets/friendlynametrackwallpapers.json");
+            fntwreq.open("get", "assets/friendlynametrackwallpapers.json");
             fntwreq.onreadystatechange = function()
             {
                 if (fntwreq.readyState == 4)
@@ -70,7 +70,7 @@ else // The session Id IS provided (expected normal behavior)
 
             //Get the local driverheadshots json file and plug in the right headshot for that driver
             var dhsreq = new XMLHttpRequest();
-            dhsreq.open("get", "/assets/driverheadshots.json");
+            dhsreq.open("get", "assets/driverheadshots.json");
             dhsreq.onreadystatechange = function()
             {
                 if (dhsreq.readyState == 4)
@@ -84,7 +84,7 @@ else // The session Id IS provided (expected normal behavior)
 
             //Get the image of the team (car) that was used
             var carreq = new XMLHttpRequest();
-            carreq.open("get", "/assets/carimages.json");
+            carreq.open("get", "assets/carimages.json");
             carreq.onreadystatechange = function()
             {
                 if (carreq.readyState == 4)
