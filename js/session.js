@@ -275,6 +275,11 @@ function DisplayCornerData(corner_number)
 {
     var index_to_pull = corner_number - 1;
     var CornerDataToDisplay = CornerPerformanceAnalysisData[index_to_pull];
-    console.log(CornerDataToDisplay.CornerNumber.toString());
+    
+    //Display the consistency rating
+    document.getElementById("corner-consistency-rating").innerText = CornerDataToDisplay.CornerConsistencyRating.toFixed(2);
+
+    //Display the Avg distance to apex
+    document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2);
 }
 
