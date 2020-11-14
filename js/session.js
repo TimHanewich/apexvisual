@@ -146,6 +146,9 @@ else // The session Id IS provided (expected normal behavior)
                             
                             //Add each
                             saobj.Corners.forEach(LoadCornerPerformanceAnalysis)
+
+                            //Display corner data for corner 1 (start off with this by default instead of just blank spaces)
+                            DisplayCornerData(1);
                         }
                         else
                         {
