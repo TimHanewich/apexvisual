@@ -139,3 +139,18 @@ data-text
     z-index: 1;
     border-radius: 10px;
 }
+
+.red-txt
+{
+    color: red;
+}
+
+.yellow-txt
+{
+    color: yellow;
+}
+
+.green-txt
+{
+    color: greenyellow;
+}

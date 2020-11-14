@@ -279,6 +279,28 @@ function DisplayCornerData(corner_number)
     //Display the consistency rating
     document.getElementById("corner-consistency-rating").innerText = CornerDataToDisplay.CornerConsistencyRating.toFixed(2);
 
+    //Color the consistency rating level
+    var cl = CornerDataToDisplay.CornerConsistencyRating;
+    var cl_txtblk = document.getElementById("corner-consistency-rating");
+    if (cl > 0.8)
+    {
+        cl_txtblk.classList.add("red-txt");
+        cl_txtblk.classList.remove("yellow-txt");
+        cl_txtblk.classList.remove("green-txt");
+    }
+    else if (cl < 0.8 && cl > 0.20)
+    {
+        cl_txtblk.classList.remove("red-txt");
+        cl_txtblk.classList.add("yellow-txt");
+        cl_txtblk.classList.remove("green-txt");
+    }
+    else if (cl < 0.20)
+    {
+        cl_txtblk.classList.remove("red-txt");
+        cl_txtblk.classList.remove("yellow-txt");
+        cl_txtblk.classList.add("green-txt");
+    }
+
     //Display the Avg distance to apex
     document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2) + " m";
 }
