@@ -3,6 +3,7 @@ var fastest_s1 = 99999;
 var fastest_s2 = 99999;
 var fastest_s3 = 99999;
 var fastest_lap = 99999;
+var CornerPerformanceAnalysisData; //This is the 'Corners' property of the Session Analysis
 
 //Get the session id from the URL
 var this_url = new URL(window.location.href);
@@ -137,6 +138,9 @@ else // The session Id IS provided (expected normal behavior)
                         //If the session analysis has corner performance analysis, render these in the corner selector
                         if (saobj.Corners != null)
                         {
+                            //Set the global variable
+                            CornerPerformanceAnalysisData = saobj.Corners;
+
                             //Clear out the items in the list
                             document.getElementById("cornerselectionlist").innerHTML = "";
                             
@@ -262,4 +266,15 @@ function LoadCornerPerformanceAnalysis(corner_analysis)
     var ele = document.createElement("corneroption");
     ele.innerText = corner_analysis.CornerNumber.toString();
     document.getElementById("cornerselectionlist").appendChild(ele);
+
+    //Add the function as the mouse over action that will show the data
+    ele.setAttribute("onmouseover", "DisplayCornerData(" + corner_analysis.CornerNumber.toString() + ")");
 }
+
+function DisplayCornerData(corner_number)
+{
+    var index_to_pull = corner_number - 1;
+    var CornerDataToDisplay = CornerPerformanceAnalysisData[index_to_pull];
+    console.log(CornerDataToDisplay.CornerNumber.toString());
+}
+
