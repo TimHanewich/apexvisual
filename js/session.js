@@ -150,6 +150,9 @@ else // The session Id IS provided (expected normal behavior)
                         else
                         {
                             //Hide the corner selector pane and show a message saying they have to re-generate the analysis in the app
+                            document.getElementById("corner-performance-analysis").classList.add("hidden");
+                            document.getElementById("corner-performance-analysis").classList.remove("cornerperformanceanalysispane"); //We have to remove this class because this class selector has a 'display' property in it (grid). The hidden class uses display to hide the control, so the browser has to choose between the two and for whatever reason it chooses the "display: grid" from this class.
+                            document.getElementById("corner-performance-analysis-not-available").classList.remove("hidden");
                         }
 
                         //Unhide the analysis section
