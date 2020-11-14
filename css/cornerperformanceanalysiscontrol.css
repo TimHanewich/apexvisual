@@ -67,6 +67,24 @@ corneroption
     background-color: blueviolet;
 }
 
+.two-data-grid
+{
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: auto; /*As big as the contents inside of it need it to be */
+    background-color: burlywood;
+}
+
+.left-data
+{
+    grid-area: left;
+    width: 100%;
+    height: 100%;
+    background-color: darkblue;
+}
+
 .stat-title
 {
     margin: 0px;
