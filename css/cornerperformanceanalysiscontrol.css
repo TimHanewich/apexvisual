@@ -58,3 +58,21 @@ corneroption
     font-size: 30px;
     display: block;
 }
+
+.cornerperformancedatapane
+{
+    grid-area: performancedisplay;
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+.stat-title
+{
+    margin: 0px;
+}
+
+data-text
+{
+    font-size: 50px;
+}
