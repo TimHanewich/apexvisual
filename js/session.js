@@ -111,7 +111,7 @@ else // The session Id IS provided (expected normal behavior)
 
             //Populate the session date time
             var dt = new Date(as_json.SessionSummaryCreatedAt);
-            var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
+            var datetimestr = (dt.getMonth() + 1).toString() + "/" + dt.getDate().toString() + "/" + dt.getFullYear().toString();
             document.getElementById("sessiondatetime").innerText = datetimestr;
 
             //Attempt to bring in the session analysis (make a call)
