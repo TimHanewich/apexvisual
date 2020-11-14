@@ -280,6 +280,6 @@ function DisplayCornerData(corner_number)
     document.getElementById("corner-consistency-rating").innerText = CornerDataToDisplay.CornerConsistencyRating.toFixed(2);
 
     //Display the Avg distance to apex
-    document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2);
+    document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2) + " m";
 }
 
