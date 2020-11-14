@@ -3,6 +3,7 @@ var fastest_s1 = 99999;
 var fastest_s2 = 99999;
 var fastest_s3 = 99999;
 var fastest_lap = 99999;
+var CornerPerformanceAnalysisData; //This is the 'Corners' property of the Session Analysis
 
 //Get the session id from the URL
 var this_url = new URL(window.location.href);
@@ -110,7 +111,7 @@ else // The session Id IS provided (expected normal behavior)
 
             //Populate the session date time
             var dt = new Date(as_json.SessionSummaryCreatedAt);
-            var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
+            var datetimestr = (dt.getMonth() + 1).toString() + "/" + dt.getDate().toString() + "/" + dt.getFullYear().toString();
             document.getElementById("sessiondatetime").innerText = datetimestr;
 
             //Attempt to bring in the session analysis (make a call)
@@ -133,6 +134,29 @@ else // The session Id IS provided (expected normal behavior)
 
                         //Post each lap to the table
                         saobj.Laps.forEach(PostLapToSessionAnalysisTable);
+
+                        //If the session analysis has corner performance analysis, render these in the corner selector
+                        if (saobj.Corners != null)
+                        {
+                            //Set the global variable
+                            CornerPerformanceAnalysisData = saobj.Corners;
+
+                            //Clear out the items in the list
+                            document.getElementById("cornerselectionlist").innerHTML = "";
+                            
+                            //Add each
+                            saobj.Corners.forEach(LoadCornerPerformanceAnalysis)
+
+                            //Display corner data for corner 1 (start off with this by default instead of just blank spaces)
+                            DisplayCornerData(1);
+                        }
+                        else
+                        {
+                            //Hide the corner selector pane and show a message saying they have to re-generate the analysis in the app
+                            document.getElementById("corner-performance-analysis").classList.add("hidden");
+                            document.getElementById("corner-performance-analysis").classList.remove("cornerperformanceanalysispane"); //We have to remove this class because this class selector has a 'display' property in it (grid). The hidden class uses display to hide the control, so the browser has to choose between the two and for whatever reason it chooses the "display: grid" from this class.
+                            document.getElementById("corner-performance-analysis-not-available").classList.remove("hidden");
+                        }
 
                         //Unhide the analysis section
                         document.getElementById("session_analysis").classList.remove("hidden");
@@ -240,5 +264,60 @@ function FindFastestTimes(lap)
     {
         fastest_lap = lap;
     }
+}
+
+function LoadCornerPerformanceAnalysis(corner_analysis)
+{
+    //Add the corner to the list
+    var ele = document.createElement("corneroption");
+    ele.innerText = corner_analysis.CornerNumber.toString();
+    document.getElementById("cornerselectionlist").appendChild(ele);
+
+    //Add the function as the mouse over action that will show the data
+    ele.setAttribute("onmouseover", "DisplayCornerData(" + corner_analysis.CornerNumber.toString() + ")");
+}
+
+function DisplayCornerData(corner_number)
+{
+    var index_to_pull = corner_number - 1;
+    var CornerDataToDisplay = CornerPerformanceAnalysisData[index_to_pull];
+
+    //Display the corner number
+    document.getElementById("corner-title").innerText = "Corner " + CornerDataToDisplay.CornerNumber.toString();
+    
+    //Display the consistency rating
+    document.getElementById("corner-consistency-rating").innerText = CornerDataToDisplay.CornerConsistencyRating.toFixed(2);
+
+    //Color the consistency rating level
+    var cl = CornerDataToDisplay.CornerConsistencyRating;
+    var cl_txtblk = document.getElementById("corner-consistency-rating");
+    if (cl > 0.8)
+    {
+        cl_txtblk.classList.add("red-txt");
+        cl_txtblk.classList.remove("yellow-txt");
+        cl_txtblk.classList.remove("green-txt");
+    }
+    else if (cl < 0.8 && cl > 0.20)
+    {
+        cl_txtblk.classList.remove("red-txt");
+        cl_txtblk.classList.add("yellow-txt");
+        cl_txtblk.classList.remove("green-txt");
+    }
+    else if (cl < 0.20)
+    {
+        cl_txtblk.classList.remove("red-txt");
+        cl_txtblk.classList.remove("yellow-txt");
+        cl_txtblk.classList.add("green-txt");
+    }
+
+    //Display the Avg distance to apex
+    document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2) + " m";
+
+    //Display the optimals vs averages
+    document.getElementById("optimal-speed").innerText = CornerDataToDisplay.OptimalSpeedMph.toFixed(1);
+    document.getElementById("avg-speed").innerText = CornerDataToDisplay.AverageSpeed.toFixed(1);
+    document.getElementById("optimal-gear").innerText = CornerDataToDisplay.OptimalGear.toString();
+    document.getElementById("avg-gear").innerText = CornerDataToDisplay.AverageGear.toFixed(1);
+
 }
 

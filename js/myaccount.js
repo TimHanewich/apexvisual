@@ -59,7 +59,7 @@ function AddSessionToTable(session_id)
 
             //Get the row string that we will pass to the AddRowToTable mfunction
             var dt = new Date(as_json.SessionSummaryCreatedAt);
-            var datetimestr = dt.getMonth().toString() + "/" + dt.getDay().toString() + "/" + dt.getFullYear().toString();
+            var datetimestr = (dt.getMonth() + 1).toString() + "/" + dt.getDate().toString() + "/" + dt.getFullYear().toString();
 
             AddRowToTable(sesid, datetimestr, as_json.CircuitString, as_json.SessionModeString);
         }
