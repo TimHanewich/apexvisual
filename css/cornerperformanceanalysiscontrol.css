@@ -154,3 +154,18 @@ data-text
 {
     color: greenyellow;
 }
+
+.corner-title-div
+{
+    width: 100%;
+    height: auto;
+    background-color: hotpink;
+    margin: 0px;
+}
+
+corner-title
+{
+    margin: 0px;
+    font-size: 40px;
+    font-weight: bold;
+}

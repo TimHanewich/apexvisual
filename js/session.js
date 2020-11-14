@@ -275,6 +275,9 @@ function DisplayCornerData(corner_number)
 {
     var index_to_pull = corner_number - 1;
     var CornerDataToDisplay = CornerPerformanceAnalysisData[index_to_pull];
+
+    //Display the corner number
+    document.getElementById("corner-title").innerText = "Corner " + CornerDataToDisplay.CornerNumber.toString();
     
     //Display the consistency rating
     document.getElementById("corner-consistency-rating").innerText = CornerDataToDisplay.CornerConsistencyRating.toFixed(2);
