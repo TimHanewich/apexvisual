@@ -85,6 +85,14 @@ corneroption
     background-color: darkblue;
 }
 
+.right-data
+{
+    grid-area: right;
+    width: 100%;
+    height: 100%;
+    background-color: darkgreen;
+}
+
 .stat-title
 {
     margin: 0px;
