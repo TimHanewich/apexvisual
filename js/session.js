@@ -306,5 +306,12 @@ function DisplayCornerData(corner_number)
 
     //Display the Avg distance to apex
     document.getElementById("avg-apex-distance").innerText = CornerDataToDisplay.AverageDistanceToApex.toFixed(2) + " m";
+
+    //Display the optimals vs averages
+    document.getElementById("optimal-speed").innerText = CornerDataToDisplay.OptimalSpeedMph.toFixed(1);
+    document.getElementById("avg-speed").innerText = CornerDataToDisplay.AverageSpeed.toFixed(1);
+    document.getElementById("optimal-gear").innerText = CornerDataToDisplay.OptimalGear.toString();
+    document.getElementById("avg-gear").innerText = CornerDataToDisplay.AverageGear.toString();
+
 }
 
