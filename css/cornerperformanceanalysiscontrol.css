@@ -185,3 +185,16 @@ corner-title
 {
     text-decoration: none;
 }
+
+#corner-performance-analysis-not-available
+{
+    width: 95%;
+    height: auto;
+    border-style: solid;
+    border-color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    margin-top: 12px;
+}
