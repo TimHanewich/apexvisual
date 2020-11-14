@@ -317,7 +317,7 @@ function DisplayCornerData(corner_number)
     document.getElementById("optimal-speed").innerText = CornerDataToDisplay.OptimalSpeedMph.toFixed(1);
     document.getElementById("avg-speed").innerText = CornerDataToDisplay.AverageSpeed.toFixed(1);
     document.getElementById("optimal-gear").innerText = CornerDataToDisplay.OptimalGear.toString();
-    document.getElementById("avg-gear").innerText = CornerDataToDisplay.AverageGear.toString();
+    document.getElementById("avg-gear").innerText = CornerDataToDisplay.AverageGear.toFixed(1);
 
 }
 
