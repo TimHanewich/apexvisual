@@ -99,17 +99,43 @@ corneroption
     display: inline-block;
 }
 
-.info-symbol
+.info-symbol-div
 {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    margin-left: 5px;
+    margin-left: 2px;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.info-symbol-div:hover .tooltip
+{
+    visibility: visible;
+}
+
+.info-symbol-img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: auto;
 }
 
 data-text
 {
     font-size: 50px;
+}
+
+.tooltip
+{
+    visibility: hidden;
+    width: 300px;
+    background-color: darkgrey;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
 }
