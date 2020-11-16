@@ -235,3 +235,12 @@ tab
 {
     font-family: sans-serif;
 }
+
+#apexvisualwordmarkimg
+{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    margin: auto;
+    transform: translateY(-1px);
+}
