@@ -164,7 +164,7 @@ h2
 
 .half-and-half-grid
 {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 100%;
     display: grid;
     height: 300px;
@@ -229,4 +229,9 @@ asset-title
     margin-top: 10px;
     margin-bottom: auto;
     object-fit: contain;
+}
+
+#brand-assets-title
+{
+    margin-top: 30px;
 }
