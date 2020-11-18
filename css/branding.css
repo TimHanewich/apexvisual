@@ -160,3 +160,17 @@ h2
 {
     color: var(--av-white);
 }
+
+.half-and-half-grid
+{
+    width: 100%;
+    display: grid;
+    height: 300px;
+    grid-template-areas: "left right";
+    background-color: blue;
+}
+
+.wordmark-content
+{
+    width: 100%;
+}
