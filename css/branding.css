@@ -1,0 +1,237 @@
+:root
+{
+    --av-red: #dd2a2a;
+    --av-gold: #dda22c;
+    --av-white: #f5f5f5;
+    --av-gray: #525252;
+    --av-black: #040f16;
+}
+
+body
+{
+    background-color: var(--av-black);
+}
+
+#wordmark
+{
+    height: 58px;
+    width: 300px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.middle-content
+{
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    width: 60%;
+    height: 100%;
+    max-width: 1000px;
+    background-color: var(--av-white);
+    transform: translateX(-50%);
+    overflow-y: scroll;
+}
+
+h1
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 28px;
+}
+
+h2
+{
+    text-align: left;
+    color: var(--av-gray);
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+
+.area-line-grid
+{
+    display: grid;
+    grid-template-areas: "left middle right";
+    grid-template-columns: 50px 1fr 50px;
+    height: 1px;
+}
+
+.area-line
+{
+    grid-area: middle;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.center-title
+{
+    text-align: center;
+    display: block;
+}
+
+.red-txt
+{
+    color: var(--av-red);
+}
+
+.gold-txt
+{
+    color: var(--av-gold);
+}
+
+.gray-txt
+{
+    color: var(--av-gray);
+}
+
+.two-colors
+{
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 50% 50%;
+    height: auto;
+    margin-top: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.three-colors
+{
+    margin-top: 20px;
+    display: grid;
+    grid-template-areas: "left middle right";
+    grid-template-columns: 33% 33% 33%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.color-box
+{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 12%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.red-color-box
+{
+    background-color: var(--av-red);
+    grid-area: left;
+}
+
+.gold-color-box
+{
+    background-color: var(--av-gold);
+    grid-area: right;
+}
+
+.white-color-box
+{
+    background-color: var(--av-white);
+    grid-area: left;
+}
+
+.gray-color-box
+{
+    background-color: var(--av-gray);
+    grid-area: middle;
+}
+
+.black-color-box
+{
+    background-color: var(--av-black);
+    grid-area: right;
+}
+
+.white-txt
+{
+    color: var(--av-white);
+}
+
+.half-and-half-grid
+{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    height: 300px;
+    grid-template-areas: "left-title right-title"
+    "left-top right-top"
+    "left-bot right-bot";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto 100px 1fr;
+}
+
+.wordmark-example-div
+{
+    height: 100%;
+    width: 100%;
+    grid-area: right-top;
+}
+
+.wordmark-example
+{
+    object-fit: contain;
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+asset-title
+{
+    text-align: center;
+    color: var(--av-gray);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.wordmark-title
+{
+    grid-area: right-title;
+}
+
+.logo-title
+{
+    grid-area: left-title;
+}
+
+.logo-example-div
+{
+    height: 100%;
+    width: 100%;
+    grid-area: left-top;
+}
+
+.logo-example
+{
+    height: 80px;
+    width: 80px;
+    border-radius: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: auto;
+    object-fit: contain;
+}
+
+#brand-assets-title
+{
+    margin-top: 30px;
+}
