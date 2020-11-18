@@ -41,6 +41,30 @@ h1
     font-size: 28px;
 }
 
+h2
+{
+    text-align: left;
+    color: var(--av-gray);
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+
+.area-line-grid
+{
+    display: grid;
+    grid-template-areas: "left middle right";
+    grid-template-columns: 50px 1fr 50px;
+    height: 1px;
+}
+
+.area-line
+{
+    grid-area: middle;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
 .center-title
 {
     text-align: center;
@@ -66,11 +90,73 @@ h1
 {
     display: grid;
     grid-template-areas: "left right";
-    grid-template-columns: 70px 70px;
-    height: 70px;
+    grid-template-columns: 50% 50%;
+    height: auto;
+    margin-top: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.three-colors
+{
+    margin-top: 20px;
+    display: grid;
+    grid-template-areas: "left middle right";
+    grid-template-columns: 33% 33% 33%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 .color-box
 {
-    
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 12%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.red-color-box
+{
+    background-color: var(--av-red);
+    grid-area: left;
+}
+
+.gold-color-box
+{
+    background-color: var(--av-gold);
+    grid-area: right;
+}
+
+.white-color-box
+{
+    background-color: var(--av-white);
+    grid-area: left;
+}
+
+.gray-color-box
+{
+    background-color: var(--av-gray);
+    grid-area: middle;
+}
+
+.black-color-box
+{
+    background-color: var(--av-black);
+    grid-area: right;
+}
+
+.white-txt
+{
+    color: var(--av-white);
 }
