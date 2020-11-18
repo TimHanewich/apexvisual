@@ -32,6 +32,7 @@ body
     max-width: 1000px;
     background-color: var(--av-white);
     transform: translateX(-50%);
+    overflow-y: scroll;
 }
 
 h1
@@ -163,14 +164,44 @@ h2
 
 .half-and-half-grid
 {
+    margin-top: 50px;
     width: 100%;
     display: grid;
     height: 300px;
-    grid-template-areas: "left right";
-    background-color: blue;
+    grid-template-areas: "left-title right-title"
+    "left-top right-top"
+    "left-bot right-bot";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto 100px 1fr;
 }
 
-.wordmark-content
+.wordmark-example-div
 {
+    height: 100%;
     width: 100%;
+    grid-area: right-top;
+}
+
+.wordmark-example
+{
+    object-fit: contain;
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+asset-title
+{
+    text-align: center;
+    color: var(--av-gray);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.wordmark-title
+{
+    grid-area: right-title;
 }
