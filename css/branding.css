@@ -205,3 +205,28 @@ asset-title
 {
     grid-area: right-title;
 }
+
+.logo-title
+{
+    grid-area: left-title;
+}
+
+.logo-example-div
+{
+    height: 100%;
+    width: 100%;
+    grid-area: left-top;
+}
+
+.logo-example
+{
+    height: 80px;
+    width: 80px;
+    border-radius: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: auto;
+    object-fit: contain;
+}
