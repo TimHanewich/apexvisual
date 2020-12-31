@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "471fbd05-b8b8-4b5b-99bb-b285a2725de9",
+		"_postman_id": "12ddaf88-52ce-4c54-974a-909fb4651c91",
 		"name": "Apex Visual 2020",
-		"description": "The Web API for the Apex Visual (2020) service.",
+		"description": "The Web API for the Apex Visual service.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -105,96 +105,6 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"Username\": \"TimHanewich\",\n    \"Password\": \"PASSWORD\",\n    \"Email\": \"EMAIL@EMAIL.COM\",\n    \"AccountCreatedAt\": \"2020-07-24T15:29:11.235835-07:00\",\n    \"OwnedSessionIds\": [\n        \"15023035330288128055\",\n        \"4879325146281322350\",\n        \"11477683289473718487\",\n        \"12573986387896759357\",\n        \"12462854966583508025\"\n    ],\n    \"PhotoBlobId\": \"9e3c285d-2534-40db-b49c-4a809b5bf16a\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Get Session Summary",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id={{SessionId}}",
-					"protocol": "https",
-					"host": [
-						"apexvisual2020",
-						"azurewebsites",
-						"net"
-					],
-					"path": [
-						"api",
-						"GetSessionSummary"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "{{SessionId}}"
-						}
-					]
-				},
-				"description": "Returns session summary details"
-			},
-			"response": [
-				{
-					"name": "Get Session Summary",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://apexvisual2020.azurewebsites.net/api/GetSessionSummary?id={{SessionId}}",
-							"protocol": "https",
-							"host": [
-								"apexvisual2020",
-								"azurewebsites",
-								"net"
-							],
-							"path": [
-								"api",
-								"GetSessionSummary"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "{{SessionId}}"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Length",
-							"value": "349"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Encoding",
-							"value": "gzip"
-						},
-						{
-							"key": "Vary",
-							"value": "Accept-Encoding"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "ARRAffinity=72d071a4c850de508c1d7ff32b85f071b45976d387502c9f291b34ca284004e7;Path=/;HttpOnly;Domain=apexvisual2020.azurewebsites.net"
-						},
-						{
-							"key": "Request-Context",
-							"value": "appId=cid-v1:f2ca42fb-0906-4687-936d-e8c8f9d697d9"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 25 Oct 2020 17:05:39 GMT"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"SessionId\": 11477683289473718487,\n    \"Circuit\": 18,\n    \"SessionMode\": 7,\n    \"SelectedTeam\": 7,\n    \"SelectedDriver\": 53,\n    \"DriverName\": \"GASLY\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\",\n    \"SessionSummaryCreatedAt\": \"2020-09-07T20:15:28.7070274+00:00\",\n    \"CircuitString\": \"Russia\",\n    \"SessionModeString\": \"Short Practice\",\n    \"SelectedTeamString\": \"Alpha Tauri\",\n    \"SelectedDriverString\": \"Pierre Gasly\"\n}"
 				}
 			]
 		},
@@ -317,12 +227,12 @@
 			]
 		},
 		{
-			"name": "Get Session Analysis",
+			"name": "Get Session",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://apexvisual2020.azurewebsites.net/api/GetSessionAnalysis?id={{SessionId}}&includecorners=false",
+					"raw": "https://apexvisual2020.azurewebsites.net/api/GetSession?id={{SessionId}}&depth=1",
 					"protocol": "https",
 					"host": [
 						"apexvisual2020",
@@ -331,7 +241,7 @@
 					],
 					"path": [
 						"api",
-						"GetSessionAnalysis"
+						"GetSession"
 					],
 					"query": [
 						{
@@ -339,21 +249,21 @@
 							"value": "{{SessionId}}"
 						},
 						{
-							"key": "includecorners",
-							"value": "false",
-							"description": "Optional parameter. Mark as 'true' if you would like corner data for each lap. Default is false."
+							"key": "depth",
+							"value": "1",
+							"description": "Session retrieval depth. This defines the depth of data that should be retrieved.\n0 = All data (full download)\n1 = Core data only (session details, laps with sector times)\n*By default, core data will be returned (0) if not provided."
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Get Session Analysis",
+					"name": "Getting core data for session 15019444879686387343",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://apexvisual2020.azurewebsites.net/api/GetSessionAnalysis?id={{SessionId}}&includecorners=false",
+							"raw": "https://apexvisual2020.azurewebsites.net/api/GetSession?id={{SessionId}}&depth=1",
 							"protocol": "https",
 							"host": [
 								"apexvisual2020",
@@ -362,7 +272,7 @@
 							],
 							"path": [
 								"api",
-								"GetSessionAnalysis"
+								"GetSession"
 							],
 							"query": [
 								{
@@ -370,9 +280,9 @@
 									"value": "{{SessionId}}"
 								},
 								{
-									"key": "includecorners",
-									"value": "false",
-									"description": "Optional parameter. Mark as 'true' if you would like corner data for each lap. Default is false."
+									"key": "depth",
+									"value": "1",
+									"description": "Session retrieval depth. This defines the depth of data that should be retrieved.\n0 = All data (full download)\n1 = Core data only (session details, laps with sector times)\n*By default, core data will be returned (0) if not provided."
 								}
 							]
 						}
@@ -383,7 +293,7 @@
 					"header": [
 						{
 							"key": "Content-Length",
-							"value": "850"
+							"value": "459"
 						},
 						{
 							"key": "Content-Type",
@@ -399,7 +309,7 @@
 						},
 						{
 							"key": "Set-Cookie",
-							"value": "ARRAffinity=efd9231352bcf6a4533ee27955f539e8af02bda068b358fda80f0e3b0a32f7c0;Path=/;HttpOnly;Domain=apexvisual2020.azurewebsites.net"
+							"value": "ARRAffinity=f713f0f1cb2d612cbe6f58d71b77f1092aa9f759c3a958fb9d0a879c478aeb7d;Path=/;HttpOnly;Domain=apexvisual2020.azurewebsites.net"
 						},
 						{
 							"key": "Request-Context",
@@ -407,11 +317,105 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 31 Oct 2020 03:23:33 GMT"
+							"value": "Thu, 31 Dec 2020 17:49:31 GMT"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"PercentLoadComplete\": 1,\n    \"LoadComplete\": true,\n    \"SessionId\": 11477683289473718487,\n    \"Laps\": [\n        {\n            \"LapNumber\": 1,\n            \"Sector1Time\": 36.198,\n            \"Sector2Time\": 35.076,\n            \"Sector3Time\": 29.818485,\n            \"LapTime\": 101.09248,\n            \"LapInvalid\": false,\n            \"FuelConsumed\": 14.042847,\n            \"PercentOnThrottle\": 0.6616444,\n            \"PercentOnBrake\": 0.10761946,\n            \"PercentCoasting\": 0.2251399,\n            \"PercentThrottleBrakeOverlap\": 0.0055962116,\n            \"PercentOnMaxThrottle\": 0.436935,\n            \"PercentOnMaxBrake\": 0.018510547,\n            \"ErsDeployed\": 1893869.8,\n            \"ErsHarvested\": 1928923.1,\n            \"GearChanges\": 143,\n            \"TopSpeedKph\": 320,\n            \"TopSpeedMph\": 198,\n            \"IncrementalAverageTyreWear\": 1\n        },\n        {\n            \"LapNumber\": 2,\n            \"Sector1Time\": 35.894,\n            \"Sector2Time\": 35.203,\n            \"Sector3Time\": 30.095829,\n            \"LapTime\": 101.192825,\n            \"LapInvalid\": false,\n            \"FuelConsumed\": 2.0249155,\n            \"PercentOnThrottle\": 0.76859504,\n            \"PercentOnBrake\": 0.11880165,\n            \"PercentCoasting\": 0.1053719,\n            \"PercentThrottleBrakeOverlap\": 0.007231405,\n            \"PercentOnMaxThrottle\": 0.5123967,\n            \"PercentOnMaxBrake\": 0.036157023,\n            \"ErsDeployed\": 1856540.9,\n            \"ErsHarvested\": 1918404.8,\n            \"GearChanges\": 68,\n            \"TopSpeedKph\": 320,\n            \"TopSpeedMph\": 198,\n            \"IncrementalAverageTyreWear\": 1\n        },\n        {\n            \"LapNumber\": 3,\n            \"Sector1Time\": 35.679,\n            \"Sector2Time\": 34.122,\n            \"Sector3Time\": 0,\n            \"LapTime\": 0,\n            \"LapInvalid\": false,\n            \"FuelConsumed\": 2.1555395,\n            \"PercentOnThrottle\": 0.11627907,\n            \"PercentOnBrake\": 0.01564482,\n            \"PercentCoasting\": 0.8673714,\n            \"PercentThrottleBrakeOverlap\": 0.0007047216,\n            \"PercentOnMaxThrottle\": 0.07610994,\n            \"PercentOnMaxBrake\": 0.0047921073,\n            \"ErsDeployed\": 0,\n            \"ErsHarvested\": 0,\n            \"GearChanges\": 69,\n            \"TopSpeedKph\": 330,\n            \"TopSpeedMph\": 205,\n            \"IncrementalAverageTyreWear\": 0.75\n        }\n    ]\n}"
+					"body": "{\n    \"SessionId\": 15019444879686387343,\n    \"Circuit\": 0,\n    \"SessionMode\": 7,\n    \"SelectedTeam\": 6,\n    \"SelectedDriver\": 59,\n    \"DriverName\": \"GASLY\",\n    \"SessionCreatedAt\": \"2020-12-11T10:53:11+00:00\",\n    \"Laps\": [\n        {\n            \"LapNumber\": 1,\n            \"Sector1Time\": 30.115,\n            \"Sector2Time\": 25.424,\n            \"Sector3Time\": 51.34995\n        },\n        {\n            \"LapNumber\": 2,\n            \"Sector1Time\": 29.689,\n            \"Sector2Time\": 23.916,\n            \"Sector3Time\": 37.12014\n        },\n        {\n            \"LapNumber\": 3,\n            \"Sector1Time\": 30.653,\n            \"Sector2Time\": 24.124,\n            \"Sector3Time\": 36.12891\n        },\n        {\n            \"LapNumber\": 4,\n            \"Sector1Time\": 29.529,\n            \"Sector2Time\": 24.033,\n            \"Sector3Time\": 36.91777\n        },\n        {\n            \"LapNumber\": 5,\n            \"Sector1Time\": 29.649,\n            \"Sector2Time\": 24.035,\n            \"Sector3Time\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "List Owned Session ID's",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://apexvisual2020.azurewebsites.net/api/ListOwnedSessionIds?owner={{Username}}",
+					"protocol": "https",
+					"host": [
+						"apexvisual2020",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"ListOwnedSessionIds"
+					],
+					"query": [
+						{
+							"key": "owner",
+							"value": "{{Username}}"
+						}
+					]
+				},
+				"description": "Lists the session ID's that belong to a particular user."
+			},
+			"response": [
+				{
+					"name": "List Owned Session ID's",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apexvisual2020.azurewebsites.net/api/ListOwnedSessionIds?owner={{Username}}",
+							"protocol": "https",
+							"host": [
+								"apexvisual2020",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"ListOwnedSessionIds"
+							],
+							"query": [
+								{
+									"key": "owner",
+									"value": "{{Username}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Request-Context",
+							"value": "appId=cid-v1:f2ca42fb-0906-4687-936d-e8c8f9d697d9"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=6079e92270f0b650c8bd456fcfb26ae87ebe9e2197aca323abd28d809adeb543;Path=/;HttpOnly;Secure;Domain=apexvisual2020.azurewebsites.net"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinitySameSite=6079e92270f0b650c8bd456fcfb26ae87ebe9e2197aca323abd28d809adeb543;Path=/;HttpOnly;SameSite=None;Secure;Domain=apexvisual2020.azurewebsites.net"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 31 Dec 2020 17:38:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"15019444879686387343\",\n    \"18178727021849742201\",\n    \"666128922182592888\"\n]"
 				}
 			]
 		}
@@ -420,7 +424,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "66d29e8c-12a7-4d26-ad06-f47252cdd373",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -430,7 +433,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "78ce0ecc-4154-471d-8af4-19b83765a7e6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -440,25 +442,20 @@
 	],
 	"variable": [
 		{
-			"id": "d5efd06b-6b57-4ad7-ae98-cf18bf0f65af",
 			"key": "Username",
 			"value": ""
 		},
 		{
-			"id": "9e91f381-2f0f-4d0e-bbf8-80d8b996ba31",
 			"key": "Password",
 			"value": ""
 		},
 		{
-			"id": "5a69d019-b5a5-4e7f-ad79-4be71eb7cec1",
 			"key": "PhotoId",
 			"value": ""
 		},
 		{
-			"id": "4a0f2e36-2f3f-4dc1-a8d6-bf6971b55da4",
 			"key": "SessionId",
 			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
